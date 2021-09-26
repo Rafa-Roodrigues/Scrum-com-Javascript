@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <!-- FORMULÁRIO -->
+    <form id="form-create-task">
+      <h2 id="form-title">Criar Tarefa</h2>
+      <p id="warning">Campos com * são obrigatórios</p>
+
+      <label for="">
+        <p>Data criação</p>
+        <input class="input" type="text" id="date-created-task" readonly>
+      </label>
+
+      <label for="">
+        <p class="field-required">Data para finalizar a tarefa</p>
+        <input name="data" placeholder="" class="input" type="date" id="date-finish-task">
+      </label>
+
+      <label for="">
+        <p class="field-required">Descrição da tarefa</p>
+        <textarea name="data" placeholder="Ex: javascript é da hora demaaais..." id="description-task"></textarea>
+      </label>
+
+      <button id="button-create-task" type="submit">Criar</button>
+    </form>
+
+    <script type="module" src="./js/formtInputsOfTypeDate.js"></script>
+    <script type="module" src="./js/formValidation.js"></script>
+  </body>
+</html>
