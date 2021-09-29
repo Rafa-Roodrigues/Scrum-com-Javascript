@@ -28,7 +28,7 @@ function createCardTask(task) {
   spanDateCreated.innerText = task.dateCreated;
   spanDateFinish.innerText = task.dateFinish;
   p.innerText = task.description;
-  img.src = "../img/delete.svg";
+  img.src = "./img/delete.svg";
 
   // ATRIBUINDO CLASSES AOS ELEMENTOS CRIADOS
   container.classList.add("task");
