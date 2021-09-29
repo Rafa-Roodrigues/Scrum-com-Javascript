@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
 * {
   margin: 0;
@@ -10,15 +11,227 @@
 :root {
   --red: #FF2626;
   --white: #ffffff;
-  --green: #406343;
+  --blue: #150050;
+  --green: #5D8233;
 }
 
-body { 
-  background-color: #222222;
+body {
+  background-color: #eeeeee;
 }
 
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
 
-/************************ FORMULÁRIO **********************/
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/************************ CABEÇALHO ***********************/
+
+header {
+  height: 15vh;
+
+  background-color: var(--blue);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#logo {
+  color: var(--white);
+  font-family: 'Patrick Hand', cursive;
+  text-transform: uppercase;
+  font-size: 32px;
+}
+
+#menu {
+  margin-top: 10px;
+}
+
+.item-menu {
+  color: var(--white);
+
+  margin: 0 20px;
+  padding: 10px 10px; 
+
+  transition: color 0.2s;
+}
+
+.item-menu:hover, #logo:hover {
+  color: #dbdbdb;
+}
+
+/************************ CONTEÚDO DA PÁGINA INDEX *******************/
+
+#content-page-index {
+  height: calc(100vh - 15vh);
+
+  display: flex;
+  justify-content: center;
+}
+
+#box-welcome {
+  max-width: 400px;
+  width: 100%;
+  
+  /* background-color: red; */
+  padding: 60px 10px 0 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#box-welcome h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+#box-welcome p {
+  margin: 10px 0 25px 0;
+}
+
+#box-welcome button  {
+  padding: 10px 50px;
+
+  background-color: var(--blue);
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+
+  color: var(--white);
+}
+
+#box-welcome button:hover {
+  background-color: #10003b;
+}
+
+/************************ CONTEÚDO DA PÁGINA DE TAREFAS **********************/
+
+#content-main-page-tasks  {
+  display: flex;
+  flex-direction: column;
+  /* background-color: chartreuse; */
+}
+
+#section-task {
+  flex: 1;
+}
+
+/**** CONTAINER DO BOTÃO DE CRIAR A TAREFA *****/
+#container-button-create-task {
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 15px 0;
+
+}
+
+#container-button-create-task button  {
+  padding: 10px 50px;
+
+  background-color: var(--blue);
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  color: var(--white);
+}
+
+#container-button-create-task button:hover {
+  background-color: #10003b;
+}
+
+/***** CONTAINER DAS TAREFAS *****/
+#container-tasks {
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+#container-tasks > div {
+  width: 340px;
+
+  background-color: var(--white);
+  border: 3px solid var(--white);
+  border-radius: 5px;
+}
+
+#container-tasks > div h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.box-task {
+  width: 100%;
+  height: 433px;
+
+  overflow-y: auto;
+
+  padding: 5px 20px 0;
+}
+
+.box-task::-webkit-scrollbar {
+  width: 7px;
+}
+
+.box-task::-webkit-scrollbar-thumb {
+  background-color: var(--green);    
+  border-radius: 20px;       
+}
+
+/***** CARD DA TAREFA *****/
+.task {
+  width: 100%;
+  max-width: 293px;
+  height: 180px;
+
+  background-color: #ffffff;
+  box-shadow: 1px 1px 3px 1px #cccccc;
+  border-radius: 5px;
+
+  margin-bottom: 15px;
+  padding: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.box-date {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.box-info {
+  flex: 1;
+  margin-bottom: 5px;
+}
+
+.box-info p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.task div {
+  display: inline-flex;
+}
+
+/***** FORMULÁRIO *****/
 form {
   max-width: 400px;
   width: 100%;
@@ -128,7 +341,7 @@ form label {
   margin-top: 20px;
 
   border-radius: 5px;
-  background-color: var(--green);
+  background-color: var(--blue);
   border: 0;
   transition: background-color 0.2s;
 
@@ -140,11 +353,33 @@ form label {
 }
 
 #button-create-task:hover {
-  background-color: rgb(49, 77, 52);
+  background-color: #10003b;
 }
 
 #date-created-task {
   background-color: #eeeeee;
   border-color: #eeeeee;
   color: #a1a1a1;
+}
+
+/***** MODAL *****/
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+/************************* RODAPÉ ************************/
+footer {
+  height: 100px;
+  background-color: var(--blue);
+  margin-top: 20px;
+  z-index: 2;
 }

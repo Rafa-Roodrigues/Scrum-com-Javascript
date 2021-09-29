@@ -1,3 +1,5 @@
+import { taskObject } from "./createTask.js";
+
 const formCreateTask = document.getElementById("form-create-task");
 const dateCreatedTask = document.getElementById("date-created-task");
 const dateFinishTask = document.getElementById("date-finish-task");
@@ -109,17 +111,16 @@ function validateForm() {
           error = true;
         }
       }
-
     }
 
   }
 
   if(error) return;
 
-  console.log("SO CHAMAR A FUNÇÃO DE CRIAR A TAREFA E SER FELIZ...");
+  taskObject(dateCreatedTask.value, dateFinishTask.value, descriptionTask.value);
 }
 
 formCreateTask.addEventListener("submit", (e) => {
   e.preventDefault();
   validateForm();
-})
+});

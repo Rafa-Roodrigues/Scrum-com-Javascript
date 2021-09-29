@@ -8,30 +8,21 @@
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
-    <!-- FORMULÁRIO -->
-    <form id="form-create-task">
-      <h2 id="form-title">Criar Tarefa</h2>
-      <p id="warning">Campos com * são obrigatórios</p>
-
-      <label for="">
-        <p>Data criação</p>
-        <input class="input" type="text" id="date-created-task" readonly>
-      </label>
-
-      <label for="">
-        <p class="field-required">Data para finalizar a tarefa</p>
-        <input name="data" placeholder="" class="input" type="date" id="date-finish-task">
-      </label>
-
-      <label for="">
-        <p class="field-required">Descrição da tarefa</p>
-        <textarea name="data" placeholder="Ex: javascript é da hora demaaais..." id="description-task"></textarea>
-      </label>
-
-      <button id="button-create-task" type="submit">Criar</button>
-    </form>
-
-    <script type="module" src="./js/formtInputsOfTypeDate.js"></script>
-    <script type="module" src="./js/formValidation.js"></script>
+    <header>
+      <h2 id="logo">To do List</h2>
+      <div id="menu">
+        <a class="item-menu" href="./index.html">Home</a>
+        <a class="item-menu" href="./tarefas.html">Tarefas</a>
+        <a class="item-menu" href="">Sobre o projeto</a>
+      </div>
+    </header>
+    <main id="content-page-index">
+      <div id="box-welcome">
+        <h1>Seja bem vindo ao <br>Lista de Tarefas</h1>
+        <p>Aqui você pode criar as suas tarefas do dia a dia para facilitar sua vida.</p>
+        <a href="./tarefas.html"><button>Criar Tarefa</button></a>
+      </div>
+    </main>
+    <footer></footer>
   </body>
 </html>
