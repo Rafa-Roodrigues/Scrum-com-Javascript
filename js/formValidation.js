@@ -34,10 +34,11 @@ function validateQuantityOfCaraterOfInput(input) {
   if(input.value.length < 11) {
     const messageError = "Este campo precisa ter mais de 10 caracteres."
     const errorBoxAlreadyExists = checkIfExistsErrorBox(parent);
-    
+    error = true;
+
     if(!errorBoxAlreadyExists) {
       showErrorBox(parent, input, messageError);
-      error = true;
+      
     }
   }
 
@@ -48,14 +49,15 @@ function validateQuantityOfCaraterOfInput(input) {
 function validateInputEmpty(input) {
   const parent = input.parentNode;
   let error = false;
+  input.value = input.value.trim();
 
   if(input.value == "") {
+    error = true;
     const messageError = "Este campo é obrigatório."
     const errorBoxAlreadyExists = checkIfExistsErrorBox(parent);
     
     if(!errorBoxAlreadyExists) {
       showErrorBox(parent, input, messageError);
-      error = true;
     }
 
   } else {
@@ -97,6 +99,7 @@ function validateForm() {
   const inputs = document.getElementsByName("data");
   let error = false;
 
+
   for(let input of inputs) {
     let response = validateInputEmpty(input);
 
@@ -112,7 +115,6 @@ function validateForm() {
         }
       }
     }
-
   }
 
   if(error) return;

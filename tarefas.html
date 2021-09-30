@@ -10,12 +10,13 @@
   <body>
     <!-- CABEÇALHO -->
     <header>
-      <h2><a id="logo" href="./index.html">To do List</a></h2>
+      <h2 id="logo"><a href="./index.html">To do List</a></h2>
       <div id="menu">
         <a class="item-menu" href="./index.html">Home</a>
         <a class="item-menu" href="./tarefas.html">Tarefas</a>
         <a class="item-menu" href="">Sobre o projeto</a>
       </div>
+      <span id="menu-hamburguer"></span>
     </header>
     <!-- CONTEÚDO PRINCIPAL -->
     <main id="content-main-page-tasks">
@@ -81,16 +82,26 @@
 
         <label for="">
           <p class="field-required">Descrição da tarefa</p>
-          <textarea name="data" placeholder="Ex: javascript é da hora demaaais..." id="description-task"></textarea>
+          <textarea name="data" placeholder="Estudar javascript..." id="description-task"></textarea>
         </label>
 
         <button id="button-create-task" type="submit">Criar</button>
       </form>
     </div>
-    <footer></footer>
+    <footer>
+      <div class="container">
+        <a target="_blank" href="https://github.com/Rafa-Roodrigues"><p>Desenvolvido por Rafael Rodrigues</p></a>
+        <div>
+          <a target="_blank" href="https://github.com/Rafa-Roodrigues" title="Github do desenvolvedor">
+            <img src="./img/github.svg" alt="">
+          </a>
+        </div>
+      </div>
+    </footer>
     <script type="module" src="./js/formtInputsOfTypeDate.js"></script>
     <script type="module" src="./js/formValidation.js"></script>
     <script type="module" src="./js/modal.js"></script>
     <script type="module" src="./js/renderTasks.js"></script>
+    <script src="./js/menuHamburguer.js"></script>
   </body>
 </html>

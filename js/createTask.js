@@ -1,4 +1,5 @@
 import { setLocalStorage, getLocalStorage } from "./localStorage.js";
+import { openCloseModal } from "./modal.js";
 import { getTasksOfLocalStorage } from "./renderTasks.js";
 
 let arrayTasks = [];
@@ -26,6 +27,7 @@ export function taskObject(dateCreated, dateFinish, description) {
   arrayTasks.push(task);
   setLocalStorage(arrayTasks);
   getTasksOfLocalStorage();
+  openCloseModal(false);
 }
 
 function formatDate(date) {

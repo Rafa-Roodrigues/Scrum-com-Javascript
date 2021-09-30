@@ -1,5 +1,7 @@
 const buttonCreateTask = document.querySelector("#container-button-create-task button");
 const modal = document.getElementById("modal");
+const date = document.getElementById("date-finish-task");
+const description = document.getElementById("description-task");
 
 // function createForm () {
 //   const form = `
@@ -29,14 +31,32 @@ const modal = document.getElementById("modal");
 //   return form;
 // }
 
-function openCloseModal(status) {
+export function openCloseModal(status) {
   if(status) {
     modal.style.display = "flex";
   } else {
     modal.style.display = "none";
+    clearModal();
   }
 }
 
+function clearModal() {
+  date.style.borderColor = "#ffffff";
+  description.style.borderColor = "#ffffff";
+  date.value="";
+  description.value="";
+
+  const errorBoxOfFieldDate = date.nextElementSibling;
+  const errorBoxOfFieldDescription = description.nextElementSibling;
+  
+  if(errorBoxOfFieldDate) {
+    errorBoxOfFieldDate.remove();
+  }
+
+  if(errorBoxOfFieldDescription) {
+    errorBoxOfFieldDescription.remove();
+  }
+}
 
 buttonCreateTask.addEventListener("click", () => openCloseModal(true));
 modal.addEventListener("click", (e) => {
