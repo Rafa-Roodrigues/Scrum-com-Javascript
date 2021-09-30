@@ -181,9 +181,12 @@ header {
 
 /***** CONTAINER DAS TAREFAS *****/
 #container-tasks {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   z-index: 1;
+
+  flex-wrap: wrap;
 }
 
 #container-tasks > div {
@@ -192,6 +195,8 @@ header {
   background-color: var(--white);
   border: 3px solid var(--white);
   border-radius: 5px;
+
+  margin: 10px 5px;
 }
 
 #container-tasks > div h3 {
@@ -222,6 +227,8 @@ header {
   width: 100%;
   max-width: 293px;
   height: 180px;
+
+  flex: 1 1 293px;
 
   background-color: #ffffff;
   box-shadow: 1px 1px 3px 1px #cccccc;
@@ -264,10 +271,13 @@ header {
 form {
   max-width: 400px;
   width: 100%;
+
   background-color: white;
-  padding: 20px;
-  margin: auto;
   border-radius: 10px;
+
+  padding: 20px;
+  margin: 0 10px;
+  
 }
 
 #form-title {
@@ -428,6 +438,7 @@ footer > div {
 footer p {
   color: var(--white);
   cursor: pointer;
+  text-align: center;
 }
 
 footer p:hover {
@@ -508,5 +519,14 @@ footer img {
 
   footer > div > a {
     margin-bottom: 10px;
+  }
+
+  #container-button-create-task {
+    justify-content: center;
+  }
+
+  #box-welcome h1 {
+    text-align: center;
+    font-size: 35px;
   }
 }

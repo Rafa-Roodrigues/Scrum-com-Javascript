@@ -48,7 +48,6 @@ function moveTask(id, status) {
   renderTasks(arrayTasks);
 }
 
-
 export function addEventsToTaskBox(card, id) {
 
   card.onmousedown = () => {
@@ -76,4 +75,20 @@ export function addEventsToTaskBox(card, id) {
     card.style.cursor = "grab";
   }
 
+  card.addEventListener("touchstart", () => {
+    card.style.cursor = "grabbing";
+    card.style.position = "absolute";
+    cardId = id;
+  })
+
+  card.addEventListener("touchmove", (e) => {
+    card.style.left = (e.pageX - 150) + "px";
+    card.style.top = (e.pageY - 80) + "px";
+  })
+
+  card.addEventListener("touchleave", (e) => {
+    card.style.cursor = "grab";
+    card.style.position = "static";
+    evento = true;
+  })
 }
