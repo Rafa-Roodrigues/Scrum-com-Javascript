@@ -210,7 +210,11 @@ header {
 
   overflow-y: auto;
 
+  border: 2px solid #ffffff;
+  transition: border-color 0.2s;
+
   padding: 5px 20px 0;
+  touch-action: none;
 }
 
 .box-task::-webkit-scrollbar {
@@ -239,11 +243,10 @@ header {
 
   display: flex;
   flex-direction: column;
+}
 
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.task:hover {
+  cursor: grab;
 }
 
 .box-date {
@@ -256,15 +259,19 @@ header {
 .box-info {
   flex: 1;
   margin-bottom: 5px;
+  word-break: break-all;
 }
 
 .box-info p {
   font-size: 14px;
-  text-align: center;
 }
 
 .task div {
   display: inline-flex;
+}
+
+.opacity {
+  opacity: 0.5;
 }
 
 /***** FORMULÁRIO *****/

@@ -14,6 +14,13 @@ descriptionTask.addEventListener("blur", () => {
   }
 });
 
+descriptionTask.addEventListener("keypress", (e) => {
+  if(descriptionTask.value.length > 150) {
+    e.preventDefault();
+    // console.log("ENTROOU")
+  }
+})
+
 // EXIBIR A CAIXA DE ERRO
 function showErrorBox(parent, input, mensagem) {
   input.style.borderColor = "#FF2626";

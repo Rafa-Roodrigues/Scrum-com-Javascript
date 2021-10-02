@@ -18,7 +18,6 @@ function createCardTask(task) {
   const container = document.createElement("div");
   const boxDate = document.createElement("div");
   const boxInfo = document.createElement("div");
-  const div = document.createElement("div");
   const spanDateCreated = document.createElement("span");
   const spanDateFinish  = document.createElement("span");
   const p = document.createElement("p");
@@ -35,16 +34,16 @@ function createCardTask(task) {
   boxDate.classList.add("box-date");
   boxInfo.classList.add("box-info");
 
+  container.setAttribute("data", task.id);
+
   // COLOCANDO OS ELEMENTOS DENTRO DE SEUS PAIS
   boxDate.appendChild(spanDateCreated);
   boxDate.appendChild(spanDateFinish);
   boxInfo.appendChild(p);
-  div.appendChild(img);
   container.appendChild(boxDate);
   container.appendChild(boxInfo);
-  container.appendChild(div);
 
-  addEventsToTaskBox(container, task.id);
+  addEventsToTaskBox(container);
   
   // RETORNANDO O CARD DA TAREFA COM TODA A SUA ESTRUTURA E VALORES
   return container;
@@ -71,3 +70,4 @@ export function renderTasks(data) {
 }
 
 window.addEventListener("load", () => getTasksOfLocalStorage());
+window.addEventListener("DOMContentLoaded", () => {console.log("MANDOU RENDERIZAR!!!")})

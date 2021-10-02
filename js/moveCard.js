@@ -1,38 +1,48 @@
 import { getLocalStorage, setLocalStorage } from "./localStorage.js";
 import { renderTasks } from "./renderTasks.js";
 
-const toDo = document.getElementById("to-do");
-const inProgress = document.getElementById("in-progress");
-const done = document.getElementById("done");
+const boxs = document.querySelectorAll(".box-task");
 
-let evento = false;
-let cardId;
+boxs.forEach(box => {
+  interact(box).dropzone({
+    accept: '.task',
+    checker: function (
+      dragEvent, 
+      event,             
+      dropped,           
+      dropzone,          
+      dropzoneElement,   
+      draggable,         
+      draggableElement   
+    ) {
 
-toDo.addEventListener("mouseover", () => {
-  if(evento) {
-    evento = false;
-    moveTask(cardId, 1);
-  }
+      if(dragEvent.type === "dragend" && dropped) {
+        dropzoneElement.parentElement.style.borderColor = "white";
+
+        if(dropzone.target.id === "to-do") {
+          changeStatusOfTask(draggable, 1);
+        } else if(dropzone.target.id === "in-progress"){
+          changeStatusOfTask(draggable, 2);
+        } else if (dropzone.target.id === "done") {
+          changeStatusOfTask(draggable, 3);
+        }
+      }
+
+      if(dragEvent.type === "dragmove" && dropped) {
+        dropzoneElement.parentElement.style.borderColor = "#7952B3";
+      }
+
+      if(dragEvent.type === "dragmove" && !dropped) {
+        dropzoneElement.parentElement.style.borderColor = "white";
+      } 
+    }
+  });
 });
 
-inProgress.addEventListener("mouseover", () => {
-  if(evento) {
-    evento = false;
-    moveTask(cardId, 2);
-  }
-});
-
-done.addEventListener("mouseover", () => {
-  if(evento) {
-    evento = false;
-    moveTask(cardId, 3);
-  }
-});
-
-function moveTask(id, status) {
+function changeStatusOfTask(draggable, status) {
   const arrayTasks = getLocalStorage();
-
-  const task = arrayTasks.find(task => task.id === id);
+  const indexElement = draggable.target.attributes[1].value;
+  const task = arrayTasks.find(task => task.id == indexElement);
 
   const index = arrayTasks.indexOf(task);
 
@@ -48,47 +58,18 @@ function moveTask(id, status) {
   renderTasks(arrayTasks);
 }
 
-export function addEventsToTaskBox(card, id) {
-
-  card.onmousedown = () => {
-    card.style.cursor = "grabbing";
-    card.style.position = "absolute";
-    cardId = id;
-  }
-
-  card.onmousemove = (e) => {
-    card.style.left = (e.pageX - 150) + "px";
-    card.style.top = (e.pageY - 80) + "px";
-  }
-
-  card.addEventListener("dblclick", () => {
-    evento = false;
-  })
-
-  card.onmouseup = () => {
-    card.style.cursor = "grab";
-    card.style.position = "static";
-    evento = true;
-  }
-
-  card.onmouseover = () => {
-    card.style.cursor = "grab";
-  }
-
-  card.addEventListener("touchstart", () => {
-    card.style.cursor = "grabbing";
-    card.style.position = "absolute";
-    cardId = id;
-  })
-
-  card.addEventListener("touchmove", (e) => {
-    card.style.left = (e.pageX - 150) + "px";
-    card.style.top = (e.pageY - 80) + "px";
-  })
-
-  card.addEventListener("touchleave", (e) => {
-    card.style.cursor = "grab";
-    card.style.position = "static";
-    evento = true;
-  })
+export function addEventsToTaskBox(card) {
+  interact(card).styleCursor(false).draggable({
+    onstart: function (e) {
+      e.currentTarget.style.position = "absolute";
+    },
+    onmove : function (e) {
+      e.currentTarget.style.top = (e.pageY - 90) + 'px';
+      e.currentTarget.style.left = (e.pageX - 145) + 'px';
+      e.currentTarget.style.cursor = "grabbing";
+    }, 
+    onend  : function (e) {
+      e.currentTarget.style.position = "static";
+    },
+  });
 }
