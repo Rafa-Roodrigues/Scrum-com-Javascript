@@ -1,4 +1,4 @@
-# TODO LIST
+# TO DO LIST
 <h4> 
   O projeto simula a metodologia ágil Scrum utilizando as tecnologias HTML, CSS e Javascript. 
   O projeto foi criado para a finalização da materia de frontend do 3º bimestre no curso certified tech developer da Digital House.
