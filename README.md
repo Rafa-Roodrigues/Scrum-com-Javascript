@@ -1,7 +1,7 @@
-# Kanban
+# TODO LIST
 <h4> 
-  Projeto realizado para finalização da materia de frontend do 3º bimestre no curso certified tech developer da digital house, 
-  onde eu criei um kanban utilizando HTML, CSS e Javascript.
+  O projeto simula a metodologia ágil Scrum utilizando as tecnologias HTML, CSS e Javascript. 
+  O projeto foi criado para a finalização da materia de frontend do 3º bimestre no curso certified tech developer da Digital House.
 </h4> 
 
 ## Tecnologias utilizadas
